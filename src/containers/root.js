@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
-// import { Provider } from 'react-redux'
-import createStore from './store'
-import addTodo from './ac'
-import ToDoComponent from './components/ToDoComponent'
-// import { connect } from 'react-redux'
+import store from '../store'
+import addTodo from '../ac/addTodo'
+import ToDoComponent from '../Components/ToDoComponent'
 
 class Provider extends Component {
   componentWillMount() {
@@ -37,8 +35,8 @@ const connect = (mapStateToProps, mapDispatchToProps) =>
     }
   }
 
-const ToDo = connect(state => ({
-  todos: state,
+const ToDo = connect((state, ownProps) => ({
+  [{todos: state, title: ownProps}]
 }), dispatch => ({
   addTodo: text => dispatch(addTodo(text)),
 }))(ToDoComponent)
@@ -46,7 +44,7 @@ const ToDo = connect(state => ({
 class Root extends Component {
     render() {
         return (
-            <Provider store={createStore}>
+            <Provider store={store}>
                 <ToDo title="Список задач"/>
             </Provider>
         )

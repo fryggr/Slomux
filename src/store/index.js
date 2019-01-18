@@ -1,5 +1,4 @@
-// import { createStore } from 'redux'
-// import reducer from './reducer'
+import reducer from '../reducer'
 
 const createStore = (reducer, initialState) => {
   let currentState = initialState
@@ -16,8 +15,6 @@ const createStore = (reducer, initialState) => {
   return { getState, dispatch, subscribe }
 }
 
-// const store = createStore(reducer, [])
-//
-// window.store = store
+const store = createStore(reducer, [])
 
-export default createStore
+export default store

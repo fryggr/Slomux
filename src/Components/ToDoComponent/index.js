@@ -6,6 +6,7 @@ class ToDoComponent extends Component {
   }
 
   render() {
+      console.log(this.props);
     return (
       <div>
         <label>{this.props.title || 'Без названия'}</label>
@@ -24,14 +25,14 @@ class ToDoComponent extends Component {
     )
   }
 
-  updateText(e) {
+  updateText = (e) => {
     const { value } = e.target
 
     // this.state.todoText = value
     this.setState({todoText: value})
   }
 
-  addTodo() {
+  addTodo = () => {
     this.props.addTodo(this.state.todoText)
 
     // this.state.todoText = ''

@@ -1,4 +1,4 @@
-import { ADD_TODO } from './constants'
+import { ADD_TODO } from '../constants'
 
 const addTodo = todo => ({
   type: ADD_TODO,
