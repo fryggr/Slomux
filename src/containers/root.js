@@ -35,8 +35,9 @@ const connect = (mapStateToProps, mapDispatchToProps) =>
     }
   }
 
-const ToDo = connect((state, ownProps) => ({
-  [{todos: state, title: ownProps}]
+const ToDo = connect((state, props) => ({
+  todos: state,
+  title: props.title
 }), dispatch => ({
   addTodo: text => dispatch(addTodo(text)),
 }))(ToDoComponent)

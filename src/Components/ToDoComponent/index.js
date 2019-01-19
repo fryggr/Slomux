@@ -6,7 +6,6 @@ class ToDoComponent extends Component {
   }
 
   render() {
-      console.log(this.props);
     return (
       <div>
         <label>{this.props.title || 'Без названия'}</label>
